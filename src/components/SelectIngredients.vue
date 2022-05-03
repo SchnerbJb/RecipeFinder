@@ -15,9 +15,15 @@ export default defineComponent({
     },
     methods: {
         addList() {
+            if (this.text === '' || this.amount === '' || this.unit === '') {
+                return
+            }
             this.ingredients.push({ id:id++, text: this.text, amount: this.amount, unit: this.unit })
             this.text = ''
             this.amount = ''
+        },
+        searchRecipe() {
+            console.warn('searching...')
         }
     }
 })
@@ -26,7 +32,7 @@ export default defineComponent({
 
 <template>
 
-    <h2>What ingredients do you have ?</h2>
+    <h2 class="p-3 m-3">What ingredients do you have ?</h2>
     
 
     <div class="container border p-3">
@@ -49,7 +55,6 @@ export default defineComponent({
                 </div>
             </div>
             <div><button class="btn btn-success mt-2" @click="addList">Add Ingredient</button></div>
-            <div><input type="submit" class="btn btn-success mt-2" value="Search Recipes" /></div>
         </form>
     </div>
 
@@ -65,7 +70,9 @@ export default defineComponent({
         <div v-else>
             <p>Nothing yet</p>
         </div>
-
+        <div>
+            <button class="btn btn-success mt-2" @click="searchRecipe">Search Recipes</button>
+        </div>
     </div>
 
 </template>

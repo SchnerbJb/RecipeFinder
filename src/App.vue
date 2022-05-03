@@ -4,21 +4,19 @@ import SelectIngredients from './components/SelectIngredients.vue'
 
 let name: string = 'Jean-Baptiste'
 
-let ingredients: { id: Number, text: String, amount: String, unit: String }[] = []
-
 </script>
 
 <template>
   <header>
 
-    <Title :name="name" msg="Yo a toi"/>  
+    <Title :name="name" msg="Welcome in my webapp, RecipeFinder"/>  
 
   </header>
 
 
   <main>
 
-    <SelectIngredients @response="(ingredientsList) => ingredients = ingredientsList" />
+    <SelectIngredients />
     
   </main>
 </template>
